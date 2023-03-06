@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Helvetica, sans-serif;
+}
+
+a {
+  font-size: 16px;
+}
+
+input,
+select {
+  @apply border-2 border-gray-300 rounded-md py-2 px-2 font-normal w-full;
+}
+
+label {
+  @apply flex flex-col justify-start items-start gap-2 font-semibold w-full;
+}
+
+form > button {
+  @apply w-full mt-4;
+}
+
+::placeholder {
+  @apply text-sm;
+}
+.select-label > * {
+  @apply w-full;
+}
+nav > a {
+  @apply w-full flex justify-start items-center gap-2 p-2 py-3 hover:bg-secondary transition-all duration-300 ease-in-out rounded-lg text-sm font-medium;
+}
+
+nav :nth-child(8) {
+  @apply mt-auto;
+}
+
+table {
+  @apply table-fixed w-full rounded-md overflow-hidden text-sm;
+
+  thead {
+    @apply w-full flex justify-between items-center  bg-secondary text-textColor;
+
+    tr {
+      @apply w-full py-3 px-2 flex justify-center items-start;
+
+      th {
+        @apply w-full flex justify-center items-start;
+      }
+    }
+  }
+
+  tbody {
+    @apply w-full flex justify-between items-center;
+
+    tr {
+      @apply w-full h-full py-3 px-2 flex justify-center items-start;
+
+      td {
+        @apply w-full h-full flex justify-center items-start;
+      }
+    }
+
+    [aria-label="action-btn"] {
+      @apply flex justify-between items-center gap-4 w-full;
+
+      td {
+        &:nth-child(2) {
+          @apply text-orange-500;
+        }
+        a {
+          @apply flex justify-center items-center gap-2 text-sm;
+        }
+      }
+    }
+  }
+}
+
+.login-main h1 {
+  @apply text-3xl font-bold text-center;
+}
+
+.login-main p {
+  @apply text-center italic text-gray-400;
+}
+
+.login-main hr {
+  @apply w-44;
+}
+
+.login-main h2 {
+  @apply text-2xl font-semibold mt-6;
+}
+
+.login-main form {
+  @apply w-4/5 py-12;
+}
