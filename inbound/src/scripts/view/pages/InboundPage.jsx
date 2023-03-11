@@ -13,19 +13,10 @@ export default function InboundPage() {
     e.preventDefault();
     navigate("/inbound/new");
   };
+
   return (
     <div>
-      <HeaderPage
-        title="Inbound"
-        subTitle="Lorem ipsum dolor sit amet consectetur"
-        sideElement={
-          <Button
-            icons={<HiOutlinePlus size={20} strokeWidth={2} />}
-            text="Add Products"
-            clickHandler={onAddProductHandler}
-          />
-        }
-      />
+      <HeaderPage title="Inbound" subTitle="Lorem ipsum dolor sit amet consectetur" sideElement={<Button icons={<HiOutlinePlus size={20} strokeWidth={2} />} text="Add Products" clickHandler={onAddProductHandler} />} />
       <InboundTable dataInbound={dataInbound} />
     </div>
   );

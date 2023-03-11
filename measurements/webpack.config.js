@@ -1,11 +1,12 @@
-const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-
+const webpack = require("webpack");
+require("dotenv").config({ path: "./.env" });
 const deps = require("./package.json").dependencies;
+
 module.exports = {
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:8080/",
   },
 
   resolve: {
@@ -13,15 +14,8 @@ module.exports = {
   },
 
   devServer: {
-    port: 3000,
+    port: 8080,
     historyApiFallback: true,
-    webSocketServer: false,
-
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
-    },
   },
 
   module: {
@@ -35,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -48,22 +42,17 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
     new ModuleFederationPlugin({
-      name: "inbound",
+      name: "measurements",
       filename: "remoteEntry.js",
       remotes: {
-        measurements: "measurements@http://localhost:8080/remoteEntry.js",
+        inbound: "inbound@http://localhost:3000/remoteEntry.js",
       },
       exposes: {
-        "./Button": "./src/scripts/view/components/Button.jsx",
-        "./HeaderPage": "./src/scripts/view/components/HeaderPage.jsx",
-        "./Sidebar": "./src/scripts/view/components/Sidebar.jsx",
-        "./InputField": "./src/scripts/view/components/InputField.jsx",
-        "./SelectField": "./src/scripts/view/components/SelectField.jsx",
-        "./SearchField": "./src/scripts/view/components/SearchField.jsx",
-        "./HeaderForm": "./src/scripts/view/components/HeaderForm.jsx",
-        "./TrashButton": "./src/scripts/view/components/TrashButton.jsx",
-        "./TableHeader": "./src/scripts/view/components/TableHeader.jsx",
+        "./MainPage": "./src/view/pages/MainPage.jsx",
       },
       shared: {
         ...deps,

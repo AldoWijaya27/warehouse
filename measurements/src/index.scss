@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  @apply table-fixed w-full rounded-md overflow-hidden text-sm;
+
+  thead {
+    @apply w-full flex justify-between items-center  bg-secondary text-textColor;
+
+    tr {
+      @apply w-full py-3 px-2 flex justify-center items-start;
+
+      th {
+        @apply w-full flex justify-center items-start;
+      }
+    }
+  }
+
+  tbody {
+    @apply w-full flex justify-between items-center;
+
+    tr {
+      @apply w-full h-full py-3 px-2 flex justify-center items-start;
+
+      td {
+        @apply w-full h-full flex justify-center items-start;
+      }
+    }
+  }
+}

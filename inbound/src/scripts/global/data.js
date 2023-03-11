@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  HiOutlinePresentationChartLine,
-  HiOutlineUserGroup,
-  HiOutlineCube,
-  HiOutlineArrowDownOnSquare,
-  HiOutlineArrowUpOnSquare,
-  HiOutlineUser,
-  HiOutlineArrowLeftOnRectangle,
-  HiOutlineMapPin,
-  HiOutlineScale,
-} from "react-icons/hi2";
+import { HiOutlinePresentationChartLine, HiOutlineUserGroup, HiOutlineCube, HiOutlineArrowDownOnSquare, HiOutlineArrowUpOnSquare, HiOutlineUser, HiOutlineArrowLeftOnRectangle, HiOutlineMapPin, HiOutlineScale } from "react-icons/hi2";
 
 const navigationPages = [
   {

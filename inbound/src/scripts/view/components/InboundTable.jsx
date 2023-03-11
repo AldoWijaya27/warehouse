@@ -9,10 +9,7 @@ export default function InboundTable({ dataInbound }) {
       <TableHeader />
       {dataInbound.map((data, i) => {
         return (
-          <tbody
-            className="table-body border-2 border-secondary border-t-0"
-            key={i}
-          >
+          <tbody className="table-body border-2 border-secondary border-t-0" key={i}>
             <tr className="w-2/5">
               <td aria-label="id">{data.id}</td>
             </tr>
